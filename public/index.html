@@ -10,8 +10,8 @@
     <title>Document</title>
 </head>
 
-<body class="antialiased text-gray-900 ">
-<div class="flex h-screen overflow-y-hidden bg-body" x-data="setup()"
+<body class="antialiased  theme-dark">
+<div class="flex h-screen overflow-y-hidden  bg-skin-body-fill" x-data="setup()"
     x-init="$refs.loading.classList.add('hidden')">
     <!-- Loading screen -->
     <div x-ref="loading"
@@ -38,7 +38,7 @@
       overflow-hidden
       transition-all
       transform
-      bg-sidebar
+      bg-skin-sidebar-fill
      
       shadow-lg
       lg:z-auto lg:static lg:shadow-none
@@ -58,10 +58,10 @@
             </button>
         </div>
         <!-- Sidebar links -->
-        <nav class="flex-1 overflow-hidden hover:overflow-y-auto ">
+        <nav class="flex-1 overflow-hidden hover:overflow-y-auto text-skin-sidebar">
             <ul class="p-2 overflow-hidden">
                 <li>
-                    <a href="#" class="flex items-center p-2 space-x-2 rounded-md text-contenttext hover:bg-body"
+                    <a href="#" class="flex items-center p-2 space-x-2 rounded-md  hover:bg-skin-sidebarhover-fill hover:text-skin-sidebarhover-link "
                         :class="{'justify-center': !isSidebarOpen}">
                         <span>
                             <svg class="w-6 h-6 " xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -77,7 +77,7 @@
             </ul>
         </nav>
         <!-- Sidebar footer -->
-        <div class="flex-shrink-0 p-2 border-t max-h-14">
+        <!-- <div class="flex-shrink-0 p-2  max-h-14 ">
             <button class="
           flex
           items-center
@@ -89,7 +89,7 @@
           font-medium
           tracking-wider
           uppercase
-          bg-gray-100
+          bg-gray-200
           border
           rounded-md
           focus:outline-none focus:ring
@@ -103,18 +103,18 @@
                 </span>
                 <span :class="{'lg:hidden': !isSidebarOpen}"> Logout </span>
             </button>
-        </div>
+        </div> -->
     </aside>
 
     <div class="flex flex-col flex-1 h-full overflow-hidden">
-        <header class="flex-shrink-0 drop-shadow-sm bg-navbar">
-            <div class="flex items-center justify-between p-2">
+        <header class="flex-shrink-0 drop-shadow-sm bg-skin-navbar-fill border-b">
+            <div class="flex items-center justify-between p-2 text-skin-nav">
                 <!-- Navbar left -->
                 <div class="flex items-center space-x-3">
-                    <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">K-WD</span>
+                    <span class="text-skin-headline p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">S-WD</span>
                     <!-- Toggle sidebar button -->
                     <button @click="toggleSidbarMenu()" class="p-2 rounded-md focus:outline-none focus:ring">
-                        <svg class="w-4 h-4 text-navtext"
+                        <svg class="w-4 h-4 "
                             :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -131,7 +131,7 @@
                         <div class="relative" x-data="{ isOpen: false }">
                             <button @click="isOpen = !isOpen"
                                 class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring">
-                                <svg class="w-6 h-6 text-navtext" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg class="w-6 h-6 " xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -139,13 +139,12 @@
                             </button>
                         </div>
                     </div>
-
                     <!-- User Menu -->
-                    <div class="relative" x-data="{ isOpen: false }">
+                    <div class="relative " x-data="{ isOpen: false }">
                         <button @click="isOpen = !isOpen"
-                            class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
-                            <img class="object-cover w-8 h-8 rounded-full"
-                                src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                            class="p-1  w-10 h-10  focus:outline-none " title="Hi,Bilal">
+                            <img class="object-cover rounded-lg "
+                                src="/public/img/Bilal-khatri.jpg"
                                 alt="Ahmed Kamel" />
                         </button>
                         
@@ -200,7 +199,7 @@
           border-b
           lg:items-center lg:space-y-0 lg:flex-row
         ">
-                <h1 class="text-contenttext text-2xl font-semibold whitespace-nowrap">Dashboard</h1>
+                <h1 class="text-skin-headline text-2xl font-semibold whitespace-nowrap">Dashboard</h1>
                 <a href="#"  class="
             inline-flex
             items-center
@@ -224,31 +223,28 @@
                     <span>ADD</span>
                 </a>
             </div>
-
-            <!-- Start Content -->
-
-            <!-- Chart cards (Four columns grid) -->
+            <!-- Color Demo -->
             <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2 lg:grid-cols-4">
                 <!-- Users chart card --><a href="#"
-                    class="bg-body p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
                     <div class="flex items-start ">
                         <div class="flex flex-col flex-shrink-0 space-y-2">
-                            <span class="text-gray-400">Total Users</span>
-                            <span class="text-lg font-semibold">100,221</span>
+                            <span class="text-skin-headline ">headline</span>
+                            <span class="text-skin-titel ">titel</span>
                         </div>
                         <div class="relative min-w-0 ml-auto h-14">
                             <canvas id="usersChart"></canvas>
                         </div>
                     </div>
                     <div>
-                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                        <span>from 2020</span>
+                        <span class="inline-block px-2  text-skin-sub-titel ">sub-titel</span>
+                        <span class="text-skin-paragraph ">paragraph</span>
                     </div>
                 </a>
 
                 <!-- Sessions chart card -->
                 <a href="#"
-                    class="bg-sidebar p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
                     <div class="flex items-start ">
                         <div class="flex flex-col flex-shrink-0 space-y-2">
                             <span class="text-sbtext">Sessions</span>
@@ -265,7 +261,7 @@
                 </a>
 
                 <!-- Vists chart card --><a href="#"
-                    class="bg-navbar p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
                     <div class="flex items-start">
                         <div class="flex flex-col flex-shrink-0 space-y-2">
                             <span class="text-navtext">Vists</span>
@@ -282,7 +278,79 @@
                 </a>
 
                 <!-- Articles chart card --><a href="#"
-                    class="bg-contenthed p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    <div class="flex items-start">
+                        <div class="flex flex-col flex-shrink-0 space-y-2">
+                            <span class="text-contenttext">Articles</span>
+                            <span class="text-lg font-semibold">600,429</span>
+                        </div>
+                        <div class="relative min-w-0 ml-auto h-14">
+                            <canvas id="articlesChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">30%</span>
+                        <span>from 2020</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Start Content -->
+            <!-- Chart cards (Four columns grid) -->
+            <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Users chart card --><a href="#"
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    <div class="flex items-start ">
+                        <div class="flex flex-col flex-shrink-0 space-y-2">
+                            <span class="text-skin-titel">Total Users</span>
+                            <span class="text-skin-sub-titel text-lg font-semibold">100,221</span>
+                        </div>
+                        <div class="relative min-w-0 ml-auto h-14">
+                            <canvas id="usersChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
+                        <span class="text-skin-paragraph">from 2020</span>
+                    </div>
+                </a>
+
+                <!-- Sessions chart card -->
+                <a href="#"
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    <div class="flex items-start ">
+                        <div class="flex flex-col flex-shrink-0 space-y-2">
+                            <span class="text-sbtext">Sessions</span>
+                            <span class="text-lg font-semibold">40%</span>
+                        </div>
+                        <div class="relative min-w-0 ml-auto h-14">
+                            <canvas id="sessionsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">1.2%</span>
+                        <span>from 2020</span>
+                    </div>
+                </a>
+
+                <!-- Vists chart card --><a href="#"
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
+                    <div class="flex items-start">
+                        <div class="flex flex-col flex-shrink-0 space-y-2">
+                            <span class="text-navtext">Vists</span>
+                            <span class="text-lg font-semibold">300,527</span>
+                        </div>
+                        <div class="relative min-w-0 ml-auto h-14">
+                            <canvas id="vistsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">10%</span>
+                        <span>from 2020</span>
+                    </div>
+                </a>
+
+                <!-- Articles chart card --><a href="#"
+                    class="bg-skin-contentbody-fill p-4 transition-shadow  rounded-lg shadow-sm hover:shadow-lg">
                     <div class="flex items-start">
                         <div class="flex flex-col flex-shrink-0 space-y-2">
                             <span class="text-contenttext">Articles</span>
@@ -302,10 +370,10 @@
             <!-- Two columns grid -->
             <div class="grid grid-cols-1 gap-6 mt-6 lg:grid-cols-2 xl:grid-cols-4">
                 <!-- Import data card -->
-                <div class="bg-contentbody    rounded-lg shadow-sm">
+                <div class="bg-skin-contentbody-fill  rounded-lg shadow-sm">
                     <!-- Card header -->
-                    <div class="bg-contenthed flex items-center justify-between px-4 py-2">
-                        <h5 class="font-semibold text-contenttext">Import Data</h5>
+                    <div class="bg-skin-contenthead-fill flex items-center justify-between px-4 py-2">
+                        <h5 class="font-semibold text-skin-titel">Import Data</h5>
                         <!-- Dots button -->
                         <button class="p-2 rounded-full">
                             <svg class="w-6 h-6 text-contenttext" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -315,10 +383,10 @@
                             </svg>
                         </button>
                     </div>
-                    <p class="px-4 py-6 text-contentbodytext">See and talk to your users and import them into your
+                    <p class="px-4 py-6 text-skin-paragraph">See and talk to your users and import them into your
                         platform.</p>
                     <ul class="px-4 pb-4 space-y-4 divide-y">
-                        <h5 class="font-semibold">Import Users from:</h5>
+                        <h5 class="text-skin-sub-titel font-semibold">Import Users from:</h5>
                         <li class="flex items-start justify-between pt-4">
                             <div class="flex items-start space-x-3">
                                 <!-- Twitter icon -->
@@ -335,7 +403,7 @@
                                 </div>
                             </div>
                             <a href="#"
-                                class="flex items-center px-2 py-1 space-x-2 text-sm text-white bg-co12 rounded-md">
+                                class="flex items-center px-2 py-1 space-x-2 text-sm text-skin-btnprimary bg-skin-btnprimary-fill opacity-100 hover:opacity-80 rounded-md">
                                 <span>Launch</span>
                                 <span class="">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -385,10 +453,10 @@
                 </div>
 
                 <!-- Monthly chart card -->
-                <div class="bg-contentbody  rounded-lg shadow-sm xl:col-span-3 bg-co13">
+                <div class="bg-skin-contentbody-fill  rounded-lg shadow-sm xl:col-span-3 bg-co13">
                     <!-- Card header -->
-                    <div class="bg-contenthed flex items-center justify-between px-4 py-2 -b bg-co12 ">
-                        <h5 class="font-semibold text-contenttext">Monthly Expenses</h5>
+                    <div class="bg-skin-contenthead-fill flex items-center justify-between px-4 py-2 -b bg-co12 ">
+                        <h5 class="font-semibold text-skin-titel">Monthly Expenses</h5>
                         <!-- Dots button -->
                         <button class="p-2 rounded-full">
                             <svg class="w-6 h-6 text-contentbodytext" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -399,7 +467,7 @@
                         </button>
                     </div>
                     <!-- Card content -->
-                    <div class="flex items-center p-4 space-x-4 text-contentbodytext">
+                    <div class="flex items-center p-4 space-x-4 text-skin-paragraph">
                         <span class="text-3xl font-medium">45%</span>
                         <span class="flex items-center px-2 space-x-2 text-sm text-green-800 bg-green-100 rounded">
                             <span>
@@ -426,22 +494,22 @@
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <div class="overflow-hidden  border-gray-200 rounded-md shadow-md">
                             <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
-                                <thead class="bg-contenthed">
+                                <thead class="bg-skin-contenthead-fill">
                                     <tr>
                                         <th scope="col"
-                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-contenttext uppercase">
+                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-skin-titel uppercase">
                                             Name
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-contenttext uppercase">
+                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-skin-titel uppercase">
                                             Title
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-contenttext uppercase">
+                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-skin-titel uppercase">
                                             Status
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-contenttext uppercase">
+                                            class="px-6 py-3 text-xs font-semibold tracking-wider text-left text-skin-titel uppercase">
                                             Role
                                         </th>
                                         <th scope="col" class="relative px-6 py-3">
@@ -449,7 +517,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class=" divide-y divide-gray-200 bg-contentbody">
+                                <tbody class=" divide-y divide-gray-200 bg-skin-contentbody-fill">
                                     <template x-for="i in 10" :key="i">
                                         <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -460,9 +528,9 @@
                                                             alt="" />
                                                     </div>
                                                     <div class="ml-4">
-                                                        <div class="text-sm font-medium text-contentbodytext">Ahmed Kamel
+                                                        <div class="text-sm font-medium text-skin-titel">Ahmed Kamel
                                                         </div>
-                                                        <div class="text-sm text-contentbodytext">ahmed.kamel@example.com
+                                                        <div class="text-sm text-skin-paragraph">ahmed.kamel@example.com
                                                         </div>
                                                     </div>
                                                 </div>
@@ -500,7 +568,7 @@
             </div>
         </main>
         <!-- Main footer -->
-        <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
+        <footer class="flex items-center justify-between flex-shrink-0 p-4  max-h-14">
             <div>S-atellite &copy; 2022</div>
             <div class="text-sm">
                 Made by

@@ -1,3 +1,12 @@
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+    return `rgb(var(${variableName}))`
+  }
+}
+
 module.exports = {
   mode: 'jit',
   purge: [
@@ -6,16 +15,37 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {                 //(light theme body-bg-#FCFAF9 )
-      colors: {
-        'body': '#0F0B35', 
-        'sidebar': '#0E031E', 
-        'sbtext': '#FCFAF9',
-        'navbar': '#0F0B35',
-        'navtext': '#F3245A',
-        'contenthed': '#0E031E',
-        'contenttext': '#F3245A',
-        'contentbody': '#252147',
-        'contentbodytext': '#FCFAF9',
+      textColor: {
+        skin: {
+           /* Text var*/
+          body:withOpacity('--color-text-body'),
+          nav:withOpacity('--color-text-nav'),
+          sidebar:withOpacity('--color-text-sidebar'),
+          headline:withOpacity('--color-text-headline'),
+          titel:withOpacity('--color-text-titel'),
+          'sub-titel':withOpacity('--color-text-sub-titel'),
+          paragraph:withOpacity('--color-text-paragraph'),
+          btnprimary:withOpacity('--color-text-btnprimary'),
+          /* Hover Text var*/
+          'sidebarhover-link':withOpacity('--color-text-sidebarhover-link'),
+        
+       
+        },
+      },
+      backgroundColor: {
+        skin: {
+          /* Backgruond var*/
+          'body-fill': withOpacity('--color-body-fill'),
+          'sidebar-fill': withOpacity('--color-sidebar-fill'),
+          'navbar-fill': withOpacity('--color-navbar-fill'),
+          'contenthead-fill': withOpacity('--color-contenthead-fill'),
+          'contentbody-fill': withOpacity('--color-contentbody-fill'),
+          'btnprimary-fill': withOpacity('--color-btnprimary-fill'),
+          /* Hover Backgruond var*/
+          'sidebarhover-fill': withOpacity('--color-sidebarhover-fill'),
+         
+          
+        },
       },
     },
   },
